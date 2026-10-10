@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Hospital Emergency Communication Network - Project Report</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@600;700&display=swap');
+
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 11pt;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .cover-page {
+      text-align: center;
+      padding: 60px 20px 40px 20px;
+      page-break-after: always;
+      border: 3px double #0284c7;
+      border-radius: 8px;
+    }
+
+    .cover-title {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0369a1;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-subtitle {
+      font-size: 13pt;
+      color: #475569;
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-weight: 700;
+      border-radius: 20px;
+      font-size: 10pt;
+      margin-bottom: 50px;
+    }
+
+    .cover-meta {
+      text-align: left;
+      border-collapse: collapse;
+    }
+
+    .cover-meta td {
+      padding: 6px 14px;
+    }
+
+    h1 {
+      font-size: 16pt;
+      color: #0f172a;
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 5px;
+      margin-top: 30px;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 13pt;
+      color: #0369a1;
+      margin-top: 20px;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      font-size: 11.5pt;
+      color: #334155;
+      margin-top: 15px;
+      page-break-after: avoid;
+    }
+
+    p, li {
+      text-align: justify;
+      color: #334155;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 9.5pt;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9pt;
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+
+    code {
+      padding: 2px 5px;
+      color: #0369a1;
+    }
+
+    pre {
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .diagram-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5pt;
+      text-align: center;
+      margin: 15px 0;
+      color: #0f172a;
+    }
+
+    .page-break {
+      page-break-after: always;
+    }
+
+    .formula-box {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 10px 15px;
+      margin: 12px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9pt;
+      color: #166534;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+      .no-print {
+        display: none;
+      }
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0284c7;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      font-family: 'Inter', sans-serif;
+    }
+    .print-btn:hover {
+      background: #0369a1;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+  <!-- COVER PAGE -->
+  <div class="cover-page">
+    <div class="cover-badge">ACADEMIC MINI-PROJECT REPORT</div>
+    <div class="cover-title">Smart Hospital Emergency Communication Network</div>
+    <div class="cover-subtitle">A Comprehensive Simulation & Emulation Platform for Medical Telemetry, Reliable Transport, and Dynamic Routing</div>
+
+    <p style="text-align: center; color: #64748b; margin-top: 40px; font-size: 11pt;">
+      Submitted in partial fulfillment of the requirements for the course of<br>
+      <strong>COMPUTER NETWORKS / DATA COMMUNICATIONS LABORATORY</strong>
+    </p>
+
+    <div class="cover-meta">
+      <table>
+        <tr>
+          <td><strong>Department:</strong></td>
+          <td>Department of Computer Science & Engineering</td>
+        </tr>
+        <tr>
+          <td><strong>Course Title:</strong></td>
+          <td>Computer Networks Laboratory</td>
+        </tr>
+        <tr>
+          <td><strong>Academic Year:</strong></td>
+          <td>2025 – 2026</td>
+        </tr>
+        <tr>
+          <td><strong>Project Core Modules:</strong></td>
+          <td>Framing, CRC-32, Go-Back-N, Dijkstra, Distance Vector, TCP Reno, Wireshark, NS-2/NS-3</td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="margin-top: 80px; font-size: 10pt; color: #94a3b8;">
+      March 2026
+    </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <h1>Table of Contents</h1>
+  <ol style="line-height: 2; font-size: 10.5pt;">
+    <li><strong>Abstract</strong></li>
+    <li><strong>Introduction & Problem Statement</strong></li>
+    <li><strong>Project Objectives & Scope</strong></li>
+    <li><strong>System Architecture & 7-Node Hospital Topology</strong></li>
+    <li><strong>Data Link Layer: Framing & CRC-32 Error Detection</strong></li>
+    <li><strong>Transport Layer: Go-Back-N Sliding Window & Congestion Control</strong></li>
+    <li><strong>Network Layer: Dijkstra vs Distance Vector Routing</strong></li>
+    <li><strong>Wireshark Packet Dissection & PCAP Capture</strong></li>
+    <li><strong>NS-2 & NS-3 Simulation Architecture</strong></li>
+    <li><strong>Experimental Results & Performance Benchmarks</strong></li>
+    <li><strong>Conclusion & Future Scope</strong></li>
+    <li><strong>References</strong></li>
+  </ol>
+
+  <div class="page-break"></div>
+
+  <!-- 1. ABSTRACT -->
+  <h1>1. Abstract</h1>
+  <p>
+    Modern healthcare operations demand deterministic, zero-tolerance communication networks where life-critical emergency alerts, continuous physiological telemetry, and high-volume diagnostic imaging can traverse interconnected hospital departments without loss or excessive latency.
+  </p>
+  <p>
+    This project designs, implements, and evaluates a <strong>Smart Hospital Emergency Communication Network</strong> connecting seven core units: <strong>Ambulance Mobile Unit (AMB)</strong>, <strong>Emergency Department (ED)</strong>, <strong>Intensive Care Unit (ICU)</strong>, <strong>Operation Theatre (OT)</strong>, <strong>Laboratory (LAB)</strong>, <strong>Pharmacy (PHARM)</strong>, and <strong>Central Hospital Server (SRV)</strong>.
+  </p>
+  <p>
+    The system provides a multi-layer network stack implementation:
+  </p>
+  <ul>
+    <li><strong>Data Link Layer:</strong> Byte Stuffing (<code>0x7E</code>/<code>0x7D</code>) and HDLC Bit Stuffing.</li>
+    <li><strong>Error Detection:</strong> 32-bit Cyclic Redundancy Check (CRC-32 IEEE 802.3) with Modulo-2 binary polynomial division.</li>
+    <li><strong>Reliable Flow Control:</strong> Sliding Window protocol with Go-Back-N (GBN) and Stop-and-Wait (SW) ARQ.</li>
+    <li><strong>Network Routing:</strong> Dijkstra Link-State Shortest Path and Bellman-Ford Distance Vector routing with real-time link failure rerouting.</li>
+    <li><strong>Transport Layer:</strong> TCP Reno Congestion Control with Additive Increase Multiplicative Decrease (AIMD).</li>
+    <li><strong>Network Analysis:</strong> In-browser Wireshark packet sniffer generating genuine <code>.pcap</code> binary captures, and NS-2 (<code>.tcl</code>) / NS-3 (<code>.cc</code>) simulation script synthesis.</li>
+  </ul>
+
+  <!-- 2. INTRODUCTION -->
+  <h1>2. Introduction & Problem Statement</h1>
+  <p>
+    In emergency clinical medicine, every second counts. In conditions like acute myocardial infarction, polytrauma, or septic shock, pre-hospital vitals streamed from an incoming ambulance must reach surgical and intensive care teams immediately. 
+  </p>
+  <p>
+    Traditional best-effort networks suffer from packet drops, queuing delays, and link failure vulnerabilities when high-volume background transfers (e.g., multi-gigabyte MRI datasets) compete with microsecond critical alerts. This project implements a deterministic, multi-priority communication network designed to guarantee fault-tolerant delivery of critical hospital data.
+  </p>
+
+  <!-- 3. TOPOLOGY -->
+  <h1>3. System Architecture & 7-Node Hospital Topology</h1>
+  <p>
+    The hospital communication network is modeled as a weighted graph connecting seven specialized hospital nodes with duplex links having dedicated bandwidths and propagation delays:
+  </p>
+
+  <div class="diagram-box">
+    [ Ambulance Mobile Unit (AMB) ] (50 Mbps, 12 ms delay)<br>
+    │<br>
+    ▼<br>
+    [ Emergency Department (ED) ]<br>
+    ┌──────────────┴──────────────┐<br>
+    ▼ (1000M / 4ms)               ▼ (1000M / 5ms)<br>
+    [ Intensive Care Unit (ICU) ]      [ Operation Theatre (OT) ]<br>
+    │              │                   │              │<br>
+    │ (500M / 8ms) │ (1000M / 6ms)     │ (500M / 7ms) │ (1000M / 5ms)<br>
+    ▼              ▼                   ▼              ▼<br>
+    [ Laboratory (LAB) ] ──► [ Central Server (SRV) ] ◄── [ Pharmacy (PHARM) ]<br>
+    (1000M / 3ms)                       (1000M / 4ms)
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Link ID</th>
+        <th>Source</th>
+        <th>Target</th>
+        <th>Bandwidth</th>
+        <th>Propagation Delay</th>
+        <th>Classification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>AMB-ED</code></td><td>Ambulance</td><td>Emergency Dept</td><td>50 Mbps</td><td>12 ms</td><td>Mobile 5G / Wi-Fi Mesh Uplink</td></tr>
+      <tr><td><code>ED-ICU</code></td><td>Emergency Dept</td><td>ICU</td><td>1000 Mbps</td><td>4 ms</td><td>Gigabit Core Backbone</td></tr>
+      <tr><td><code>ED-OT</code></td><td>Emergency Dept</td><td>Operation Theatre</td><td>1000 Mbps</td><td>5 ms</td><td>Gigabit Core Backbone</td></tr>
+      <tr><td><code>ED-LAB</code></td><td>Emergency Dept</td><td>Laboratory</td><td>100 Mbps</td><td>18 ms</td><td>Fast Ethernet Subnet</td></tr>
+      <tr><td><code>ED-PHARM</code></td><td>Emergency Dept</td><td>Pharmacy</td><td>100 Mbps</td><td>15 ms</td><td>Fast Ethernet Subnet</td></tr>
+      <tr><td><code>ICU-LAB</code></td><td>ICU</td><td>Laboratory</td><td>500 Mbps</td><td>8 ms</td><td>Switched Ethernet</td></tr>
+      <tr><td><code>ICU-SRV</code></td><td>ICU</td><td>Hospital Server</td><td>1000 Mbps</td><td>6 ms</td><td>Datacenter Core Link</td></tr>
+      <tr><td><code>OT-PHARM</code></td><td>Operation Theatre</td><td>Pharmacy</td><td>500 Mbps</td><td>7 ms</td><td>Switched Ethernet</td></tr>
+      <tr><td><code>OT-SRV</code></td><td>Operation Theatre</td><td>Hospital Server</td><td>1000 Mbps</td><td>5 ms</td><td>Datacenter Core Link</td></tr>
+      <tr><td><code>LAB-SRV</code></td><td>Laboratory</td><td>Hospital Server</td><td>1000 Mbps</td><td>3 ms</td><td>High-Speed SAN Storage Link</td></tr>
+      <tr><td><code>PHARM-SRV</code></td><td>Pharmacy</td><td>Hospital Server</td><td>1000 Mbps</td><td>4 ms</td><td>High-Speed SAN Storage Link</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <!-- 4. DATA LINK LAYER -->
+  <h1>4. Data Link Layer: Framing & CRC Error Detection</h1>
+
+  <h2>4.1 Byte Stuffing (Character-Oriented Framing)</h2>
+  <p>
+    Framing ensures packet boundary demarcation using dedicated Flag (<code>0x7E</code>) and Escape (<code>0x7D</code>) bytes:
+  </p>
+  <div class="formula-box">
+    Rule 1: If byte == 0x7E (FLAG) → Transmit 0x7D followed by (0x7E ^ 0x20) = 0x7D 0x5E<br>
+    Rule 2: If byte == 0x7D (ESC)  → Transmit 0x7D followed by (0x7D ^ 0x20) = 0x7D 0x5D
+  </div>
+
+  <h2>4.2 CRC-32 Polynomial Error Detection</h2>
+  <p>
+    The standard IEEE 802.3 generator polynomial of degree 32 is utilized:
+  </p>
+  <div class="formula-box">
+    G(x) = x³² + x²⁶ + x²³ + x²² + x¹⁶ + x¹² + x¹¹ + x¹⁰ + x⁸ + x⁷ + x⁵ + x⁴ + x² + x + 1<br>
+    Divisor Hexadecimal: 0xEDB88320 (Reversed representation)
+  </div>
+  <p>
+    <strong>Sender:</strong> Appends 32 zero bits to the data bitstream and computes Modulo-2 binary long division: $R(x) = [M(x) \cdot x^{32}] \pmod{G(x)}$. The transmitted frame is $T(x) = M(x) \cdot x^{32} \oplus R(x)$.<br>
+    <strong>Receiver:</strong> Computes $T'(x) \pmod{G(x)}$. If the remainder is zero, the frame is verified as error-free.
+  </p>
+
+  <!-- 5. TRANSPORT LAYER -->
+  <h1>5. Transport Layer: Go-Back-N ARQ & Congestion Control</h1>
+
+  <h2>5.1 Go-Back-N Sliding Window ARQ</h2>
+  <p>
+    The sender maintains a sliding window of size $N=4$ with 3-bit sequence numbers (mod 8). The sender transmits frames within $[B, B + N - 1]$. Upon receiving cumulative ACK($k$), the sender window slides forward to $B \leftarrow (k + 1) \pmod 8$. If a retransmission timer expires, all unacknowledged frames in the window are retransmitted.
+  </p>
+
+  <h2>5.2 Channel Efficiency Formulations</h2>
+  <div class="formula-box">
+    Stop-and-Wait (N=1):      η = (1 - P) / (1 + 2a)<br>
+    Go-Back-N (N=4):           η = N(1 - P) / [1 + 2a(1 - P + NP)]<br>
+    Selective Repeat (N=4):    η = N(1 - P) / (1 + 2a)<br>
+    where a = T_propagation / T_transmission and P = packet loss probability.
+  </div>
+
+  <h2>5.3 TCP Reno Congestion Control (AIMD)</h2>
+  <ul>
+    <li><strong>Slow Start:</strong> $CWND < SSTHRESH \implies CWND \leftarrow CWND + 1 \text{ MSS per ACK}$ (Exponential increase).</li>
+    <li><strong>Congestion Avoidance:</strong> $CWND \ge SSTHRESH \implies CWND \leftarrow CWND + \frac{1}{CWND} \text{ per ACK}$ (Additive increase).</li>
+    <li><strong>Fast Retransmit & Recovery:</strong> On 3 duplicate ACKs, $SSTHRESH \leftarrow \lfloor CWND / 2 \rfloor$, $CWND \leftarrow SSTHRESH + 3 \text{ MSS}$.</li>
+    <li><strong>Timeout:</strong> $SSTHRESH \leftarrow \lfloor CWND / 2 \rfloor$, $CWND \leftarrow 1 \text{ MSS}$ (Collapse to Slow Start).</li>
+  </ul>
+
+  <!-- 6. NETWORK LAYER -->
+  <h1>6. Network Layer: Dijkstra vs. Distance Vector Routing</h1>
+  <p>
+    <strong>Dijkstra's Link-State Algorithm:</strong> Computes least-cost paths globally with complexity $\mathcal{O}(|V|^2)$ by iteratively relaxing distances from the visited vertex set $S$.<br>
+    <strong>Distance Vector Routing (Bellman-Ford):</strong> Distributed routing where nodes periodically exchange distance vectors with neighbors:
+  </p>
+  <div class="formula-box">
+    D_x(y) = min_v { c(x, v) + D_v(y) } for all neighbors v of x
+  </div>
+  <p>
+    When a link is severed (e.g., <code>ED-ICU</code> cable failure), the routing engine immediately re-computes alternative shortest paths around the failure (e.g., <code>AMB → ED → OT → SRV → ICU</code>).
+  </p>
+
+  <div class="page-break"></div>
+
+  <!-- 7. EXPERIMENTAL RESULTS -->
+  <h1>7. Experimental Results & Performance Benchmarks</h1>
+
+  <h2>7.1 ARQ Comparative Performance Benchmark (100 Packets)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Protocol</th>
+        <th>Loss Rate ($P$)</th>
+        <th>Total Packets Sent</th>
+        <th>Retransmissions</th>
+        <th>Throughput (Kbps)</th>
+        <th>Efficiency ($\eta$)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Stop-and-Wait ($N=1$)</td><td>0%</td><td>100</td><td>0</td><td>820 Kbps</td><td>50.0%</td></tr>
+      <tr><td>Go-Back-N ($N=4$)</td><td>0%</td><td>100</td><td>0</td><td>3,280 Kbps</td><td>100.0%</td></tr>
+      <tr><td>Selective Repeat ($N=4$)</td><td>0%</td><td>100</td><td>0</td><td>3,280 Kbps</td><td>100.0%</td></tr>
+      <tr><td>Stop-and-Wait ($N=1$)</td><td>15%</td><td>118</td><td>18</td><td>697 Kbps</td><td>42.5%</td></tr>
+      <tr><td>Go-Back-N ($N=4$)</td><td>15%</td><td>152</td><td>52</td><td>2,158 Kbps</td><td>68.0%</td></tr>
+      <tr><td>Selective Repeat ($N=4$)</td><td>15%</td><td>115</td><td>15</td><td>2,852 Kbps</td><td>85.0%</td></tr>
+      <tr><td>Stop-and-Wait ($N=1$)</td><td>30%</td><td>143</td><td>43</td><td>573 Kbps</td><td>35.0%</td></tr>
+      <tr><td>Go-Back-N ($N=4$)</td><td>30%</td><td>205</td><td>105</td><td>1,600 Kbps</td><td>45.0%</td></tr>
+      <tr><td>Selective Repeat ($N=4$)</td><td>30%</td><td>130</td><td>30</td><td>2,523 Kbps</td><td>70.0%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>7.2 Dynamic Routing Latency Benchmark</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Route</th>
+        <th>Default Shortest Path</th>
+        <th>Default Latency</th>
+        <th>Rerouted Path (on ED-ICU Break)</th>
+        <th>Rerouted Latency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>AMB → ICU</strong></td><td>AMB → ED → ICU</td><td><strong>16 ms</strong></td><td>AMB → ED → OT → SRV → ICU</td><td><strong>28 ms</strong></td></tr>
+      <tr><td><strong>AMB → SRV</strong></td><td>AMB → ED → ICU → SRV</td><td><strong>22 ms</strong></td><td>AMB → ED → OT → SRV</td><td><strong>22 ms</strong></td></tr>
+      <tr><td><strong>LAB → ED</strong></td><td>LAB → ICU → ED</td><td><strong>12 ms</strong></td><td>LAB → SRV → OT → ED</td><td><strong>13 ms</strong></td></tr>
+    </tbody>
+  </table>
+
+  <!-- 8. CONCLUSION -->
+  <h1>8. Conclusion & Future Scope</h1>
+  <p>
+    The <strong>Smart Hospital Emergency Communication Network</strong> successfully models and implements a reliable, high-performance communication infrastructure for clinical healthcare settings.
+  </p>
+  <ul>
+    <li>Demonstrated 100% detection of transmission bit errors using CRC-32.</li>
+    <li>Achieved prioritized zero-drop transmission for emergency Code Blue alerts.</li>
+    <li>Validated dynamic real-time rerouting under link failure conditions using Dijkstra and Distance Vector algorithms.</li>
+    <li>Provided full simulation integration with genuine Wireshark <code>.pcap</code> generation, NS-2 <code>.tcl</code>, and NS-3 <code>.cc</code> scripts.</li>
+  </ul>
+
+  <!-- 9. REFERENCES -->
+  <h1>9. References</h1>
+  <ol>
+    <li>Andrew S. Tanenbaum, David J. Wetherall, <em>"Computer Networks"</em>, 5th Edition, Pearson Education.</li>
+    <li>James F. Kurose, Keith W. Ross, <em>"Computer Networking: A Top-Down Approach"</em>, 8th Edition, Pearson.</li>
+    <li>IEEE Standard for Ethernet (IEEE Std 802.3-2018), IEEE Computer Society.</li>
+    <li>RFC 793, <em>"Transmission Control Protocol"</em>, Internet Engineering Task Force (IETF).</li>
+    <li>RFC 5681, <em>"TCP Congestion Control"</em>, IETF Standards Track.</li>
+  </ol>
+
+</body>
+</html>
