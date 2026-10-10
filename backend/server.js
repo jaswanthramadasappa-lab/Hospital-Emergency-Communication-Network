@@ -1,11 +1,13 @@
+
 import express from "express";
 import cors from "cors";
 import { randomUUID } from "node:crypto";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: CLIENT_URL }));
 app.use(express.json());
 
 const departments = [
@@ -94,7 +96,6 @@ app.patch("/api/alerts/:id/acknowledge", (req, res) => {
   }
 
   alert.status = "Acknowledged";
-
   res.json({ success: true, data: alert });
 });
 
@@ -109,7 +110,6 @@ app.patch("/api/alerts/:id/resolve", (req, res) => {
   }
 
   alert.status = "Resolved";
-
   res.json({ success: true, data: alert });
 });
 
@@ -120,6 +120,6 @@ app.use((req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Hospital backend running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Hospital backend running on port ${PORT}`);
 });
