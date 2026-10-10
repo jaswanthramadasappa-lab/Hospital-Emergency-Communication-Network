@@ -25,6 +25,22 @@ import { NSCodeStudio } from './components/NSCodeStudio';
 import { AnalyticsDashboard } from './components/AnalyticsDashboard';
 
 export default function App() {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const [backendStatus, setBackendStatus] = useState("Checking...");
+
+useEffect(() => {
+  fetch(`${API_URL}/api/health`)
+    .then((res) => {
+      if (!res.ok) throw new Error("Backend error");
+      return res.json();
+    })
+    .then((data) => {
+      setBackendStatus(data.success ? "Connected" : "Unavailable");
+    })
+    .catch(() => {
+      setBackendStatus("Disconnected");
+    });
+}, []);
   const [activeMainTab, setActiveMainTab] = useState('CANVAS'); // 'CANVAS' | 'PROTOCOLS' | 'WIRESHARK' | 'NS_STUDIO' | 'ANALYTICS'
   const [routingAlgorithm, setRoutingAlgorithm] = useState('DIJKSTRA'); // 'DIJKSTRA' | 'DISTANCE_VECTOR'
   
@@ -192,10 +208,18 @@ export default function App() {
                 Smart Hospital Emergency Network
               </h1>
               <div className="flex items-center gap-2 text-[11px] text-slate-400 font-mono">
-                <span className="flex items-center gap-1 text-emerald-400">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  System Operational
-                </span>
+                ```jsx
+<span
+  className={`flex items-center gap-1 ${
+    backendStatus === "Connected"
+      ? "text-emerald-400"
+      : "text-amber-400"
+  }`}
+>
+  <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
+  Backend: {backendStatus}
+</span>
+```
                 <span>•</span>
                 <span>Time: {currentTime}</span>
               </div>
